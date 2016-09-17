@@ -1,0 +1,7 @@
+# files to ignore
+#-----------------------------------
+.idea
+.DS_Store
+.keep
+# ignore node modules
+/node_modules/
