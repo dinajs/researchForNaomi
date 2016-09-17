@@ -14,7 +14,7 @@
     <br>
     go back :<input id="goBack"> num of Chars
     <br>
-    <textarea id="txtToSearch" width="600px" height="400px"></textarea>
+    <textarea id="fullTxtSearch" width="600px" height="400px"></textarea>
     <br>
     <div id="resultBox"></div>
 
@@ -23,10 +23,11 @@
 <script>
 
 function searchStrings(){
-    var theString=$( "#txtToSearch" ).val();
+    var theString=$( "#fullTxtSearch" ).val();
+    var toSearch=$( "#toSearch" ).val();
     console.log(theString);
     var numChars=theString.length;
-    console.log(numChars);
+
     var fromChar=parseInt($("#startChar" ).val());
     var toChar=parseInt($( "#endChar" ).val());
     var startSearchFrom,endSearchTo;
@@ -40,6 +41,7 @@ function searchStrings(){
     theString= theString.substring(startSearchFrom-1, endSearchTo+1);
 
     theString = theString.replace(toSearch, "<span style='background-color:rgba(200,200,0,0.3)'>"+toSearch+"</span>;");
+
     $("#resultBox").html(theString);
 
 
