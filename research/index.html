@@ -32,9 +32,10 @@
     <hr>
     <a href="#" onclick="searchStrings()">Run Search</a>
     <br>
+    <div id="resultBox"></div>
     <textarea id="fullTxtSearch" style="width:600px; height:400px"></textarea>
     <br>
-    <div id="resultBox"></div>
+
 
 </form>
 
@@ -44,7 +45,7 @@ function searchStrings(){
     var theString=$( "#fullTxtSearch" ).val();
     var atoSearch=[$( "#atoSearch0" ).val(),$( "#atoSearch1" ).val(),$( "#atoSearch2" ).val()];
     var btoSearch=[$( "#btoSearch0" ).val(),$( "#btoSearch1" ).val(),$( "#btoSearch2" ).val()];
-    console.log(theString);
+    //console.log(theString);
     var numChars=theString.length;
 
     var fromChar=parseInt($("#startChar" ).val());
@@ -59,6 +60,8 @@ function searchStrings(){
     }
     theString= theString.substring(startSearchFrom-1, endSearchTo+1);
     for (var i=0;i<8;i++){
+        console.log("replacing:");
+        console.log(atoSearch[i]);
         theString = theString.replace(atoSearch[i], "<span style='background-color:rgba(0,200,0,0.3)'>"+atoSearch[i]+"</span>;");
     }
     for (var i=0;i<8;i++){
