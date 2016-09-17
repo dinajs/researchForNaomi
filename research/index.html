@@ -10,6 +10,7 @@
     <br>
     end char num <input id="endChar">
     <br>
+    go back :<input id="goBack"> num of Chars
     <textarea id="txtToSearch" width="600px" height="400px"></textarea>
     <a href="#" onclick="searchStrings()">Run Search</a>
 </form>
@@ -21,6 +22,21 @@ function searchStrings(){
     console.log(theString);
     var numChars=theString.length;
     console.log(numChars);
+    var fromChar=parseInt($("#startChar" ).val());
+    var toChar=parseInt($( "#endChar" ).val());
+    var startSearchFrom,endSearchTo;
+    if (fromChar>toChar){
+        startSearchFrom=toChar-parseInt($("#goBack" ).val());
+        endSearchTo=fromChar;
+    }else{
+        startSearchFrom=fromChar-parseInt($("#goBack" ).val());
+        endSearchTo=toChar;
+    }
+    var stringToDoSearchOn = str.substring(startSearchFrom-1, endSearchTo+1);
+
+    stringToDoSearchOn = stringToDoSearchOn.replace(theString, "<span style='background-color:rgba(200,200,0,0.3)'>"+theString+"</span>;");
+    $("#resultBox").html(stringToDoSearchOn);
+    $("#resultBox:contains(theString)").addClass( 'critical').html(nuApp.lang.currentLangArr.critical);
 
 }
 </script>
