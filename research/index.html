@@ -10,9 +10,12 @@
     <br>
     end char num <input id="endChar">
     <br>
+    <a href="#" onclick="searchStrings()">Run Search</a>
+    <br>
     go back :<input id="goBack"> num of Chars
     <textarea id="txtToSearch" width="600px" height="400px"></textarea>
-    <a href="#" onclick="searchStrings()">Run Search</a>
+    <br>
+
 </form>
 
 <script>
@@ -32,10 +35,10 @@ function searchStrings(){
         startSearchFrom=fromChar-parseInt($("#goBack" ).val());
         endSearchTo=toChar;
     }
-    var stringToDoSearchOn = str.substring(startSearchFrom-1, endSearchTo+1);
+    theString= theString.substring(startSearchFrom-1, endSearchTo+1);
 
-    stringToDoSearchOn = stringToDoSearchOn.replace(theString, "<span style='background-color:rgba(200,200,0,0.3)'>"+theString+"</span>;");
-    $("#resultBox").html(stringToDoSearchOn);
+    theString = theString.replace(theString, "<span style='background-color:rgba(200,200,0,0.3)'>"+theString+"</span>;");
+    $("#resultBox").html(theString);
     $("#resultBox:contains(theString)").addClass( 'critical').html(nuApp.lang.currentLangArr.critical);
 
 }
