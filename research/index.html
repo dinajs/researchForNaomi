@@ -129,7 +129,12 @@ var tmp;
         //theString = theString.replace(atoSearch[i],"<span style='background-color:rgba(200,200,0,0.3)'>"+atoSearch[i]+"</span>");
     }
     for (var i=0;i<8;i++){
-        theString = theString.replace(btoSearch[i], "<span style='background-color:rgba(0,200,0,0.3)'>"+btoSearch[i]+"</span>");
+        //theString = theString.replace(btoSearch[i], "<span style='background-color:rgba(0,200,0,0.3)'>"+btoSearch[i]+"</span>");
+        if(btoSearch[i]!=''||btoSearch[i].length>0){
+            theStringArr=theString.split(btoSearch[i]);
+            tmp="<span style='background-color:rgba(200,0,0,0.3)'>"+btoSearch[i]+"</span>";
+            theString= theStringArr.join(tmp);
+        }
     }
 
 
