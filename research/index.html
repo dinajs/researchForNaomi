@@ -114,10 +114,11 @@ function searchStrings(){
         $('#countbtoSearch'+i).html(occurrences(theString, btoSearch[i]));
     }
 
-
+var tmp;
     for (var i=0;i<8;i++){
         theStringArr=theString.split(atoSearch[i]);
-        theString= theStringArr.join("<span style='background-color:rgba(200,200,0,0.3)'>"+atoSearch[i]+"</span>")
+        tmp="<span style='background-color:rgba(200,200,0,0.3)'>"+atoSearch[i]+"</span>";
+        theString= theStringArr.join(tmp);
        //theString=replaceAll(theString,atoSearch[i],"<span style='background-color:rgba(200,200,0,0.3)'>"+atoSearch[i]+"</span>" );
        // theString=theString.replaceAll(atoSearch[i], "<span style='background-color:rgba(200,200,0,0.3)'>"+atoSearch[i]+"</span>" );
        // theString=theString.replace(new RegExp(atoSearch[i], 'g'), "<span style='background-color:rgba(200,200,0,0.3)'>"+atoSearch[i]+"</span>");
