@@ -116,9 +116,11 @@ function searchStrings(){
 
 var tmp;
     for (var i=0;i<8;i++){
-        theStringArr=theString.split(atoSearch[i]);
-        tmp="<span style='background-color:rgba(200,200,0,0.3)'>"+atoSearch[i]+"</span>";
-        theString= theStringArr.join(tmp);
+        if(atoSearch[i]!=''||atoSearch[i].length>0){
+            theStringArr=theString.split(atoSearch[i]);
+            tmp="<span style='background-color:rgba(200,200,0,0.3)'>"+atoSearch[i]+"</span>";
+            theString= theStringArr.join(tmp);
+        }
        //theString=replaceAll(theString,atoSearch[i],"<span style='background-color:rgba(200,200,0,0.3)'>"+atoSearch[i]+"</span>" );
        // theString=theString.replaceAll(atoSearch[i], "<span style='background-color:rgba(200,200,0,0.3)'>"+atoSearch[i]+"</span>" );
        // theString=theString.replace(new RegExp(atoSearch[i], 'g'), "<span style='background-color:rgba(200,200,0,0.3)'>"+atoSearch[i]+"</span>");
