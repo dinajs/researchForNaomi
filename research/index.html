@@ -37,7 +37,7 @@
     <hr>
     <a href="#" onclick="searchStrings()">Run Search</a>
     <br>
-    <div id="resultBox" style="width:100%;height:300 px"></div>
+    <div id="resultBox" style="width:100%;height:300px"></div>
     <hr>
     String to search:<br>
     <textarea id="fullTxtSearch" style="width:100%; height:400px;"></textarea>
@@ -68,18 +68,18 @@
     }
 
 function searchStrings(){
-    var theString=$( "#fullTxtSearch" ).val();
+    var theString=$("#fullTxtSearch" ).val();
     var atoSearch=[];
     var btoSearch=[];
     var count=[];
     for (var i=0;i<8;i++){
         atoSearch.push($( "#atoSearch"+i ).val().toLowerCase());
-
         btoSearch.push($( "#btoSearch"+i ).val().toLowerCase());
 
     }
     //console.log(theString);
     var numChars=theString.length;
+    console.log(numChars);
 
     var fromChar=parseInt($("#startChar" ).val());
     var toChar=parseInt($( "#endChar" ).val());
@@ -92,6 +92,8 @@ function searchStrings(){
         endSearchTo=toChar;
     }
     theString= theString.substring(startSearchFrom-1, endSearchTo+1);
+    console.log(numCharslength);
+
 
     for (var i=0;i<8;i++) {
         $('#countatoSearch'+i).html(occurrences(theString, atoSearch[i]));
