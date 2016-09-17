@@ -8,10 +8,21 @@
     <input id="atoSearch0">
     <input id="atoSearch1">
     <input id="atoSearch2">
+    <input id="atoSearch3">
+    <input id="atoSearch4">
+    <input id="atoSearch5">
+    <input id="atoSearch6">
+    <input id="atoSearch7">
+
     <br>
     <input id="btoSearch0">
     <input id="btoSearch1">
     <input id="btoSearch2">
+    <input id="btoSearch3">
+    <input id="btoSearch4">
+    <input id="btoSearch5">
+    <input id="btoSearch6">
+    <input id="btoSearch7">
     <br>
     start char num <input id="startChar">
     &nbsp;|&nbsp;
@@ -47,11 +58,11 @@ function searchStrings(){
         endSearchTo=toChar;
     }
     theString= theString.substring(startSearchFrom-1, endSearchTo+1);
-    for (var i=0;i<3;i++){
-        theString = theString.replace(atoSearch[i], "<span style='background-color:rgba(0,200,0,0.3)'>"+toSearch+"</span>;");
+    for (var i=0;i<8;i++){
+        theString = theString.replace(atoSearch[i], "<span style='background-color:rgba(0,200,0,0.3)'>"+atoSearch[i]+"</span>;");
     }
-    for (var i=0;i<3;i++){
-        theString = theString.replace(btoSearch[i], "<span style='background-color:rgba(0,200,0,0.3)'>"+toSearch+"</span>;");
+    for (var i=0;i<8;i++){
+        theString = theString.replace(btoSearch[i], "<span style='background-color:rgba(0,200,0,0.3)'>"+btoSearch+"</span>;");
     }
 
 
