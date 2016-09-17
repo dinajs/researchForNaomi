@@ -4,15 +4,22 @@
 </head>
 <body>
 <form>
-    To search:<input id="toSearch">
+    To search:
+    <input id="atoSearch0">
+    <input id="atoSearch1">
+    <input id="atoSearch2">
+    <br>
+    <input id="btoSearch0">
+    <input id="btoSearch1">
+    <input id="btoSearch2">
     <br>
     start char num <input id="startChar">
-    <br>
+    &nbsp;|&nbsp;
     end char num <input id="endChar">
-    <br>
-    <a href="#" onclick="searchStrings()">Run Search</a>
-    <br>
+    &nbsp;|&nbsp;
     go back :<input id="goBack"> num of Chars
+    <hr>
+    <a href="#" onclick="searchStrings()">Run Search</a>
     <br>
     <textarea id="fullTxtSearch" style="width:600px; height:400px"></textarea>
     <br>
@@ -24,7 +31,8 @@
 
 function searchStrings(){
     var theString=$( "#fullTxtSearch" ).val();
-    var toSearch=$( "#toSearch" ).val();
+    var atoSearch=[$( "#atoSearch0" ).val(),$( "#atoSearch1" ).val(),$( "#atoSearch2" ).val()];
+    var btoSearch=[$( "#btoSearch0" ).val(),$( "#btoSearch1" ).val(),$( "#btoSearch2" ).val()];
     console.log(theString);
     var numChars=theString.length;
 
@@ -39,8 +47,14 @@ function searchStrings(){
         endSearchTo=toChar;
     }
     theString= theString.substring(startSearchFrom-1, endSearchTo+1);
+    for (var i=0;i<3;i++){
+        theString = theString.replace(atoSearch[i], "<span style='background-color:rgba(0,200,0,0.3)'>"+toSearch+"</span>;");
+    }
+    for (var i=0;i<3;i++){
+        theString = theString.replace(btoSearch[i], "<span style='background-color:rgba(0,200,0,0.3)'>"+toSearch+"</span>;");
+    }
 
-    theString = theString.replace(toSearch, "<span style='background-color:rgba(200,200,0,0.3)'>"+toSearch+"</span>;");
+
 
     $("#resultBox").html(theString);
 
