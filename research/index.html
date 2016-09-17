@@ -77,9 +77,6 @@ function searchStrings(){
         btoSearch.push($( "#btoSearch"+i ).val().toLowerCase());
 
     }
-    //console.log(theString);
-
-    console.log(theString.length);
 
     var fromChar=parseInt($("#startChar" ).val());
     var toChar=parseInt($( "#endChar" ).val());
@@ -92,7 +89,6 @@ function searchStrings(){
         endSearchTo=toChar;
     }
     theString= theString.substring(startSearchFrom-1, endSearchTo+1);
-    console.log(numChars.length);
 
 
     for (var i=0;i<8;i++) {
