@@ -43,8 +43,13 @@
 
 function searchStrings(){
     var theString=$( "#fullTxtSearch" ).val();
-    var atoSearch=[$( "#atoSearch0" ).val(),$( "#atoSearch1" ).val(),$( "#atoSearch2" ).val()];
-    var btoSearch=[$( "#btoSearch0" ).val(),$( "#btoSearch1" ).val(),$( "#btoSearch2" ).val()];
+    var atoSearch=[];
+    var btoSearch=[];
+    for (var i=0;i<8;i++){
+        atoSearch.push($( "#atoSearch"+i ).val().toLowerCase());
+        btoSearch.push($( "#btoSearch"+i ).val().toLowerCase());
+
+    }
     //console.log(theString);
     var numChars=theString.length;
 
