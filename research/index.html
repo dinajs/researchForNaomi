@@ -1,7 +1,24 @@
 <html>
 <head>
+    <script src="js/jquery.min.js"></script>
 </head>
 <body>
-hi  there testy
+<form>
+    To search:<input id="toSearch">
+    <br>
+    start char num <input id="startChar">
+    <br>
+    end char num <input id="endChar">
+    <br>
+    <textarea id="txtToSearch" width="600px" height="400px"></textarea>
+    <a href="#" onclick="searchStrings()">Run Search</a>
+</form>
+
+<script>
+
+function searchStrings(){
+    console.log($( "#txtToSearch" ).val());
+}
+</script>
 </head>
 </html>
