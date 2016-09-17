@@ -61,9 +61,12 @@
 </form>
 
 <script>
-    String.prototype.replaceAll = function(target, replacement) {
-        return this.split(target).join(replacement);
-    };
+    //String.prototype.replaceAll = function(target, replacement) {
+      //  return this.split(target).join(replacement);
+    //};
+    function replaceAll(string,find, replacement){
+        return string.split(target).join(replacement);
+    }
     function occurrences(string, subString, allowOverlapping) {
 
         string += "";
@@ -115,7 +118,9 @@ function searchStrings(){
 
 
     for (var i=0;i<8;i++){
-        theString=theString.replaceAll(atoSearch[i], "<span style='background-color:rgba(200,200,0,0.3)'>"+atoSearch[i]+"</span>" );
+
+       theString=replaceAll(theString,atoSearch[i],"<span style='background-color:rgba(200,200,0,0.3)'>"+atoSearch[i]+"</span>" );
+       // theString=theString.replaceAll(atoSearch[i], "<span style='background-color:rgba(200,200,0,0.3)'>"+atoSearch[i]+"</span>" );
        // theString=theString.replace(new RegExp(atoSearch[i], 'g'), "<span style='background-color:rgba(200,200,0,0.3)'>"+atoSearch[i]+"</span>");
         //replacement="<span style='background-color:rgba(200,200,0,0.3)'>"+atoSearch[i]+"</span>";
         //theString = theString.replace(pattern,replacement);
