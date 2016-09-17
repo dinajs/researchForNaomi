@@ -94,9 +94,8 @@ function searchStrings(){
     theString= theString.substring(startSearchFrom-1, endSearchTo+1);
 
     for (var i=0;i<8;i++) {
-
         $('#countatoSearch'+i).html(occurrences(theString, atoSearch[i]));
-        $('#countatoSearch'+i).html(occurrences(theString, btoSearch[i]));
+        $('#countbtoSearch'+i).html(occurrences(theString, btoSearch[i]));
     }
 
 
