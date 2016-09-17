@@ -39,7 +39,7 @@ function searchStrings(){
     }
     theString= theString.substring(startSearchFrom-1, endSearchTo+1);
 
-    theString = theString.replace(theString, "<span style='background-color:rgba(200,200,0,0.3)'>"+theString+"</span>;");
+    theString = theString.replace(toSearch, "<span style='background-color:rgba(200,200,0,0.3)'>"+toSearch+"</span>;");
     $("#resultBox").html(theString);
 
 
