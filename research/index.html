@@ -110,10 +110,12 @@ function searchStrings(){
         $('#countbtoSearch'+i).html(occurrences(theString, btoSearch[i]));
     }
 
-
+var pattern,replacement;
 
     for (var i=0;i<8;i++){
-        theString = theString.replace(atoSearch[i],"<span style='background-color:rgba(200,200,0,0.3)'>"+atoSearch[i]+"</span>");
+        pattern = new RegExp(atoSearch[i], 'g');
+        replacement="<span style='background-color:rgba(200,200,0,0.3)'>"+atoSearch[i]+"</span>";
+        theString = theString.replace(pattern,replacement);
     }
     for (var i=0;i<8;i++){
         theString = theString.replace(btoSearch[i], "<span style='background-color:rgba(0,200,0,0.3)'>"+btoSearch[i]+"</span>");
