@@ -13,8 +13,10 @@
     <a href="#" onclick="searchStrings()">Run Search</a>
     <br>
     go back :<input id="goBack"> num of Chars
+    <br>
     <textarea id="txtToSearch" width="600px" height="400px"></textarea>
     <br>
+    <div id="resultBox"></div>
 
 </form>
 
@@ -39,7 +41,7 @@ function searchStrings(){
 
     theString = theString.replace(theString, "<span style='background-color:rgba(200,200,0,0.3)'>"+theString+"</span>;");
     $("#resultBox").html(theString);
-    $("#resultBox:contains(theString)").addClass( 'critical').html(nuApp.lang.currentLangArr.critical);
+
 
 }
 </script>
