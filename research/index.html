@@ -7,25 +7,25 @@
     To search:
     <hr>
     <br>Group1:&nbsp;
-    <input id="atoSearch0">
-    <input id="atoSearch1">
-    <input id="atoSearch2">
-    <input id="atoSearch3">
-    <input id="atoSearch4">
-    <input id="atoSearch5">
-    <input id="atoSearch6">
-    <input id="atoSearch7">
+    <input id="atoSearch0"><span id="countatoSearch0"></span>&nbsp;&nbsp;
+    <input id="atoSearch1"><span id="countatoSearch1"></span>&nbsp;&nbsp;
+    <input id="atoSearch2"><span id="countatoSearch2"></span>&nbsp;&nbsp;
+    <input id="atoSearch3"><span id="countatoSearch3"></span>&nbsp;&nbsp;
+    <input id="atoSearch4"><span id="countatoSearch4"></span>&nbsp;&nbsp;
+    <input id="atoSearch5"><span id="countatoSearch5"></span>&nbsp;&nbsp;
+    <input id="atoSearch6"><span id="countatoSearch6"></span>&nbsp;&nbsp;
+    <input id="atoSearch7"><span id="countatoSearch7"></span>&nbsp;&nbsp;
     <br>
     <br>
     Group2:&nbsp;
-    <input id="btoSearch0">
-    <input id="btoSearch1">
-    <input id="btoSearch2">
-    <input id="btoSearch3">
-    <input id="btoSearch4">
-    <input id="btoSearch5">
-    <input id="btoSearch6">
-    <input id="btoSearch7">
+    <input id="btoSearch0"><span id="countbtoSearch0"></span>&nbsp;&nbsp;
+    <input id="btoSearch1"><span id="countbtoSearch1"></span>&nbsp;&nbsp;
+    <input id="btoSearch2"><span id="countbtoSearch2"></span>&nbsp;&nbsp;
+    <input id="btoSearch3"><span id="countbtoSearch3"></span>&nbsp;&nbsp;
+    <input id="btoSearch4"><span id="countbtoSearch4"></span>&nbsp;&nbsp;
+    <input id="btoSearch5"><span id="countbtoSearch5"></span>&nbsp;&nbsp;
+    <input id="btoSearch6"><span id="countbtoSearch6"></span>&nbsp;&nbsp;
+    <input id="btoSearch7"><span id="countbtoSearch7"></span>&nbsp;&nbsp;
     <br>
     <hr>
     <br>
@@ -47,13 +47,34 @@
 </form>
 
 <script>
+    function occurrences(string, subString, allowOverlapping) {
+
+        string += "";
+        subString += "";
+        if (subString.length <= 0) return (string.length + 1);
+
+        var n = 0,
+                pos = 0,
+                step = allowOverlapping ? 1 : subString.length;
+
+        while (true) {
+            pos = string.indexOf(subString, pos);
+            if (pos >= 0) {
+                ++n;
+                pos += step;
+            } else break;
+        }
+        return n;
+    }
 
 function searchStrings(){
     var theString=$( "#fullTxtSearch" ).val();
     var atoSearch=[];
     var btoSearch=[];
+    var count=[];
     for (var i=0;i<8;i++){
         atoSearch.push($( "#atoSearch"+i ).val().toLowerCase());
+
         btoSearch.push($( "#btoSearch"+i ).val().toLowerCase());
 
     }
@@ -71,9 +92,16 @@ function searchStrings(){
         endSearchTo=toChar;
     }
     theString= theString.substring(startSearchFrom-1, endSearchTo+1);
+
+    for (var i=0;i<8;i++) {
+
+        $('#countatoSearch'+i).html(occurrences(theString, atoSearch[i]));
+        $('#countatoSearch'+i).html(occurrences(theString, btoSearch[i]));
+    }
+
+
+
     for (var i=0;i<8;i++){
-        console.log("replacing:");
-        console.log(atoSearch[i]);
         theString = theString.replace(atoSearch[i], "<span style='background-color:rgba(200,200,0,0.3)'>"+atoSearch[i]+"</span>;");
     }
     for (var i=0;i<8;i++){
