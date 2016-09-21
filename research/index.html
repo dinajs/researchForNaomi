@@ -87,6 +87,7 @@
 
 function searchStrings(){
     var theString=$("#fullTxtSearch" ).val();
+    theString = theString.replace(/(\r\n|\n|\r)/gm, "");
     var atoSearch=[];
     var btoSearch=[];
     var count=[];
